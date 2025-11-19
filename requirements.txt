@@ -3,6 +3,7 @@ numpy
 jupyterlab
 pytest
 nltk
+seaborn
 scikit-learn
 matplotlib
 vaderSentiment
