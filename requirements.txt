@@ -1,0 +1,10 @@
+pandas
+numpy
+jupyterlab
+pytest
+nltk
+scikit-learn
+matplotlib
+vaderSentiment
+gensim
+python-dateutil
