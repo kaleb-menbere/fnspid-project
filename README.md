@@ -199,9 +199,4 @@ initiates coverage:  28,980 occurrences
 - **Current Progress**: Task 1 Completed ✅
 - **Next Deadline**: Task 2 & 3 - 25 Nov 2025
 
-## 📞 Support
-
-- **Slack Channel**: #all-week1
-- **Office Hours**: Mon-Fri, 08:00-15:00 UTC
-
 ---
