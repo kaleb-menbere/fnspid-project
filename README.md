@@ -4,7 +4,6 @@
 ![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-orange)
 ![NLP](https://img.shields.io/badge/NLP-Topic%20Modeling-green)
 ![Finance](https://img.shields.io/badge/Finance-Analytics-yellow)
-![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
 **10 Academy: Artificial Intelligence Mastery**  
 **Week 1 Challenge: Predicting Price Moves with News Sentiment**  
