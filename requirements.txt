@@ -6,6 +6,7 @@ nltk
 seaborn
 TA-Lib
 pynance
+yfinance
 scikit-learn
 matplotlib
 vaderSentiment
