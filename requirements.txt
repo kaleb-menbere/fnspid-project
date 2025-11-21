@@ -4,6 +4,8 @@ jupyterlab
 pytest
 nltk
 seaborn
+TA-Lib
+pynance
 scikit-learn
 matplotlib
 vaderSentiment
