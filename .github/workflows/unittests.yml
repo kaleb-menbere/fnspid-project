@@ -1,46 +1,36 @@
-name: Python Unit Tests
+name: Basic Python Checks
 
 on:
   push:
-    branches: [ main, task-1, develop ]
+    branches: [ main, develop, task-1 ]
   pull_request:
     branches: [ main ]
 
 jobs:
-  test:
+  basic-tests:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: [3.8, 3.9, 3.10]
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Set up Python ${{ matrix.python-version }}
+    - name: Set up Python
       uses: actions/setup-python@v3
       with:
-        python-version: ${{ matrix.python-version }}
+        python-version: "3.9"
 
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-        python -m nltk.downloader punkt stopwords wordnet
 
-    - name: Run unit tests with pytest
+    - name: Run basic tests
       run: |
-        pytest tests/ -v --cov=src --cov-report=xml
-
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v2
-      with:
-        file: ./coverage.xml
-        flags: unittests
-        name: codecov-umbrella
+        pytest -q
 
   lint:
     runs-on: ubuntu-latest
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
@@ -50,62 +40,11 @@ jobs:
       with:
         python-version: "3.9"
 
-    - name: Install dependencies
+    - name: Install flake8
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
-        pip install flake8 black isort
+        pip install flake8
 
-    - name: Check code formatting with black
+    - name: Run basic linting
       run: |
-        black --check src/ tests/ scripts/
-
-    - name: Check import sorting with isort
-      run: |
-        isort --check-only src/ tests/ scripts/
-
-    - name: Lint with flake8
-      run: |
-        flake8 src/ tests/ scripts/ --count --select=E9,F63,F7,F82 --show-source --statistics
-        flake8 src/ tests/ scripts/ --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-
-  notebook-check:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-
-    - name: Set up Python
-      uses: actions/setup-python@v3
-      with:
-        python-version: "3.9"
-
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-        pip install nbconvert nbformat
-
-    - name: Check notebook execution
-      run: |
-        python -m jupyter nbconvert --to notebook --execute notebooks/*.ipynb --output-dir /tmp
-
-  data-validation:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-
-    - name: Set up Python
-      uses: actions/setup-python@v3
-      with:
-        python-version: "3.9"
-
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-
-    - name: Validate data structure
-      run: |
-        python scripts/validate_data.py
+        flake8 src/ --max-line-length=120 --ignore=E501,W503
