@@ -259,15 +259,6 @@ Combine:
 
 ---
 
-# 🤝 **Acknowledgments**
-
-* **Program**: 10 Academy AI Mastery
-* **Mentors**: Kerod, Mahbubah, Filimon
-* **Completion**: November 2025
-* **Status**: All Tasks Completed Successfully ✅
-
----
-
 # 📄 **License**
 
 This project is part of the 10 Academy AI Mastery Program. Usage is subject to program guidelines.
